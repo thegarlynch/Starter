@@ -1,4 +1,4 @@
-package com.thegar.starter.helper
+package com.thegar.starter.helper.timber
 
 import timber.log.Timber
 

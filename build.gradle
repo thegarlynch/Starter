@@ -27,3 +27,18 @@ plugins {
     id "com.osacky.doctor" version "0.8.1"
     id "com.diffplug.spotless" version "6.8.0" apply false
 }
+
+task createSpotlessPreCommitHook() {
+    doLast {
+        def hookDir = new File("${project.rootDir}/.git/hooks")
+        if (!hookDir.exists()) {
+            hookDir.mkdirs()
+        }
+
+        def file = new File("${project.rootDir}/.git/hooks", "pre-commit")
+        file.text = """#!/bin/bash
+                       |echo "Running spotless check"
+                       |./gradlew spotlessApply""".stripMargin()
+        "chmod +x ${project.rootDir}/.git/hooks/pre-commit".execute()
+    }
+}

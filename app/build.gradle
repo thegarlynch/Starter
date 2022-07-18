@@ -79,6 +79,9 @@ dependencies {
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
 
+    // Android ThreeTen Backport
+    implementation "com.jakewharton.threetenabp:threetenabp:1.4.0"
+
     // Dagger Hilt
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-compiler:$hilt_version"

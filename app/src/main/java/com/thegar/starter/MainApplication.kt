@@ -2,10 +2,11 @@ package com.thegar.starter
 
 import android.app.Application
 import android.content.Context
+import com.jakewharton.threetenabp.AndroidThreeTen
 import com.thegar.compat.CrossVariant
 import com.thegar.compat.attachBaseContext
 import com.thegar.starter.di.ApplicationComponent
-import com.thegar.starter.helper.TimberReleaseTree
+import com.thegar.starter.helper.timber.TimberReleaseTree
 import dagger.hilt.EntryPoints
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
@@ -24,6 +25,8 @@ class MainApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        AndroidThreeTen.init(this)
+
         val tree = if (BuildConfig.DEBUG) {
             Timber.DebugTree()
         } else {

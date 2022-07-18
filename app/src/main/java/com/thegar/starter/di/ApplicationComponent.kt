@@ -1,5 +1,6 @@
 package com.thegar.starter.di
 
+import android.app.Application
 import android.content.Context
 import com.squareup.moshi.Moshi
 import dagger.hilt.EntryPoint
@@ -15,4 +16,6 @@ interface ApplicationComponent {
     val context: Context
 
     val moshi: Moshi
+
+    val application: Application
 }
