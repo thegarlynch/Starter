@@ -8,7 +8,6 @@ spotless {
         // define the steps to apply to those files
         indentWithSpaces()
         trimTrailingWhitespace()
-        endWithNewline()
     }
 
     kotlin {
@@ -16,6 +15,5 @@ spotless {
         ktlint()
         trimTrailingWhitespace()
         indentWithSpaces()
-        endWithNewline()
     }
 }

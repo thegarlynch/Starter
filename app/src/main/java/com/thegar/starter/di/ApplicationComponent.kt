@@ -15,5 +15,4 @@ interface ApplicationComponent {
     val context: Context
 
     val moshi: Moshi
-
 }

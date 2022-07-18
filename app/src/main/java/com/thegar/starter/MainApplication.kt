@@ -19,7 +19,6 @@ class MainApplication : Application() {
         super.attachBaseContext(base)
         CrossVariant.attachBaseContext(this)
     }
-
 }
 
 private var mApp: ApplicationComponent? = null

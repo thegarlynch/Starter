@@ -23,5 +23,4 @@ object ApplicationModule {
         }
         return builder.build()
     }
-
 }
