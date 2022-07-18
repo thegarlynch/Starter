@@ -1,4 +1,4 @@
-package com.thegar.starter.di
+package com.thegar.starter.core.di
 
 import android.app.Application
 import android.content.Context
