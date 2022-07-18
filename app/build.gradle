@@ -5,6 +5,8 @@ plugins {
     id "dagger.hilt.android.plugin"
 }
 
+apply from: "$rootDir/script/spotless.gradle"
+
 android {
     compileSdk 32
 
