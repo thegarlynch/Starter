@@ -2,7 +2,7 @@ apply plugin: "com.diffplug.spotless"
 
 spotless {
     // optional: limit format enforcement to just the files changed by this feature branch
-    ratchetFrom 'master'
+    // ratchetFrom 'master'
 
     format 'misc', {
         // define the files to apply `misc` to
