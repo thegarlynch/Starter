@@ -89,6 +89,9 @@ dependencies {
     androidTestImplementation "com.google.dagger:hilt-android-testing:$hilt_version"
     kaptAndroidTest "com.google.dagger:hilt-compiler:$hilt_version"
 
+    // Timber
+    implementation "com.jakewharton.timber:timber:5.0.1"
+
     // moshi-kotlin would depend on 2.5MB of kotlin-reflect library
     // https://github.com/square/moshi#reflection
     debugImplementation moshiDebug
