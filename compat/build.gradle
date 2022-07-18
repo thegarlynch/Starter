@@ -1,0 +1,33 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    compileSdk 32
+
+    flavorDimensions "minApi"
+    productFlavors {
+        minApi19 {
+            dimension "minApi"
+        }
+
+        minApi21 {
+            dimension "minApi"
+        }
+    }
+
+    packagingOptions {
+        pickFirst 'androidsupportmultidexversion.txt'
+    }
+
+}
+
+dependencies {
+    minApi19Implementation "androidx.multidex:multidex:2.0.1"
+
+    // moshi-kotlin would depend on 2.5MB of kotlin-reflect library
+    // https://github.com/square/moshi#reflection
+    debugImplementation moshiDebug
+    releaseImplementation moshiRelease
+}
