@@ -7,7 +7,6 @@ spotless {
     format 'misc', {
         // define the files to apply `misc` to
         target '**/*.gradle', '**/*.md', '**/.gitignore'
-
         // define the steps to apply to those files
         indentWithSpaces()
         trimTrailingWhitespace()
@@ -19,4 +18,15 @@ spotless {
         trimTrailingWhitespace()
         indentWithSpaces()
     }
+
+    kotlinGradle {
+        target '*.gradle.kts'
+        ktlint()
+    }
+
+    json {
+        target 'src/**/*.json'
+        simple()
+    }
+
 }

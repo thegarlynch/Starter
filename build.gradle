@@ -36,9 +36,9 @@ task createSpotlessPreCommitHook() {
         }
 
         def file = new File("${project.rootDir}/.git/hooks", "pre-commit")
-        file.text = """#!/bin/bash
-                       |echo "Running spotless check"
-                       |./gradlew spotlessApply""".stripMargin()
-        "chmod +x ${project.rootDir}/.git/hooks/pre-commit".execute()
+        if (!file.exists()) {
+            "cp ${project.rootDir}/script/pre-commit-hook ${project.rootDir}/.git/hooks/pre-commit".execute()
+            "chmod +x ${project.rootDir}/.git/hooks/pre-commit".execute()
+        }
     }
 }
