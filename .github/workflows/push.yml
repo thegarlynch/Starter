@@ -28,7 +28,14 @@ jobs:
       run: ./gradlew spotlessCheck
 
     - name: Run Unit Tests
-      run: ./gradlew testDebugUnitTest
+      run: ./gradlew test
+
+    - name: Build App
+      id: buildAllApks
+      wrapper-cache-enabled: true
+      dependencies-cache-enabled: true
+      configuration-cache-enabled: true
+      arguments: assembleRelease
 
     - name: Run Emulator
       uses: reactivecircus/android-emulator-runner@v2
@@ -39,10 +46,3 @@ jobs:
         profile: Nexus 6
         script: |
           ./gradlew connectedAndroidTest
-
-    - name: Build App
-      id: buildAllApks
-      wrapper-cache-enabled: true
-      dependencies-cache-enabled: true
-      configuration-cache-enabled: true
-      arguments: assembleRelease
