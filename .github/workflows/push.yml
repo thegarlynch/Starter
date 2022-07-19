@@ -1,0 +1,48 @@
+name: Push Build
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: alpine-latest
+    steps:
+    - name: Checkout the Repository
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+
+    - name: Setup JDK 11
+      uses: actions/setup-java@v2
+      with:
+        distribution: "zulu"
+        java-version: "11"
+
+    - name: Setup Android SDK
+      uses: android-actions/setup-android@v2
+
+    - name: Run Spotless
+      run: ./gradlew spotlessCheck
+
+    - name: Run Unit Tests
+      run: ./gradlew testDebugUnitTest
+
+    - name: Run Emulator
+      uses: reactivecircus/android-emulator-runner@v2
+      with:
+        api-level: 23
+        target: default
+        arch: x86
+        profile: Nexus 6
+        script: |
+          ./gradlew connectedAndroidTest
+
+    - name: Build App
+      id: buildAllApks
+      wrapper-cache-enabled: true
+      dependencies-cache-enabled: true
+      configuration-cache-enabled: true
+      arguments: assembleRelease
