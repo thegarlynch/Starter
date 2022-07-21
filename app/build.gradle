@@ -77,45 +77,39 @@ dependencies {
     implementation project(":compat")
 
     // Retrofit
-    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation libs.retrofit
 
     // Android ThreeTen Backport
-    implementation "com.jakewharton.threetenabp:threetenabp:1.4.0"
+    implementation libs.threeten
 
     // Dagger Hilt
-    implementation "com.google.dagger:hilt-android:$hilt_version"
-    kapt "com.google.dagger:hilt-compiler:$hilt_version"
+    implementation libs.hilt.android
+    kapt libs.hilt.compiler
 
-    testImplementation "com.google.dagger:hilt-android-testing:$hilt_version"
-    kaptTest "com.google.dagger:hilt-compiler:$hilt_version"
+    testImplementation libs.hilt.android.testing
+    kaptTest libs.hilt.compiler
 
-    androidTestImplementation "com.google.dagger:hilt-android-testing:$hilt_version"
-    kaptAndroidTest "com.google.dagger:hilt-compiler:$hilt_version"
+    androidTestImplementation libs.hilt.android.testing
+    kaptAndroidTest libs.hilt.compiler
 
     // Timber
-    implementation "com.jakewharton.timber:timber:5.0.1"
+    implementation libs.timber
 
     // moshi-kotlin would depend on 2.5MB of kotlin-reflect library
     // https://github.com/square/moshi#reflection
-    debugImplementation moshiDebug
-    releaseImplementation moshiRelease
-    kaptRelease moshiKapt
-
-    def lifecycle_version = "2.5.0"
+    debugImplementation libs.moshi.debug
+    releaseImplementation libs.moshi.release
+    kaptRelease libs.moshi.kapt
 
     // Lifecycle
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+    implementation libs.bundles.lifecycle
 
     // OkHttp Interceptor
-    implementation "com.squareup.okhttp3:logging-interceptor:4.10.0"
+    implementation libs.okhttp.logging
 
-    def room_version = "2.4.2"
     // Room
-    implementation "androidx.room:room-runtime:$room_version"
-    kapt "androidx.room:room-compiler:$room_version"
+    implementation libs.room.runtime
+    kapt libs.room.compiler
 
     implementation "androidx.core:core-ktx:1.8.0"
     implementation "androidx.appcompat:appcompat:1.4.2"
