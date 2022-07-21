@@ -1,0 +1,46 @@
+[versions]
+hilt = "2.42"
+moshi = "1.13.0"
+lifecycle = "2.5.0"
+room = "2.4.2"
+gradle-plugin = "7.2.1"
+
+[libraries]
+retrofit = { module = "com.squareup.retrofit2:retrofit", version = "2.9.0" }
+threeten = { module = "com.jakewharton.threetenabp:threetenabp", version = "1.4.0" }
+timber = { module = "com.jakewharton.timber:timber", version = "5.0.1"}
+okhttp-logging = { module = "com.squareup.okhttp3:logging-interceptor", version = "3.11.0" }
+multidex = { module = "androidx.multidex:multidex", version = "2.0.1" }
+
+
+# moshi-kotlin would depend on 2.5MB of kotlin-reflect library
+# https://github.com/square/moshi#reflection
+moshi-debug = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "moshi" }
+moshi-release = { module = "com.squareup.moshi:moshi", version.ref = "moshi" }
+moshi-kapt = { module = "com.squareup.moshi:moshi-kotlin-codegen", version.ref = "moshi" }
+
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
+hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
+hilt-gradle = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "hilt"}
+hilt-android-testing = { module = "com.google.dagger:hilt-android-testing", version.ref = "hilt"}
+
+lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+lifecycle-livedata = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifecycle" }
+lifecycle-savedstate = { module = "androidx.lifecycle:lifecycle-viewmodel-savedstate", version.ref = "lifecycle" }
+lifecycle-common = { module = "androidx.lifecycle:lifecycle-common-java8", version.ref = "lifecycle"}
+
+room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+
+android-tools = { module = "com.android.tools.build:gradle", version.ref = "gradle-plugin" }
+
+[bundles]
+lifecycle = [ "lifecycle-viewmodel", "lifecycle-livedata", "lifecycle-savedstate", "lifecycle-common" ]
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "gradle-plugin" }
+android-library = { id = "com.android.library", version.ref = "gradle-plugin" }
+jetbrains-kotlin = { id = "org.jetbrains.kotlin.android", version = "1.7.10" }
+gradle-cachefix = { id = "org.gradle.android.cache-fix", version = "2.5.5"}
+gradle-doctor = { id = "com.osacky.doctor", version = "0.8.1" }
+spotless = { id = "com.diffplug.spotless", version = "6.8.0" }

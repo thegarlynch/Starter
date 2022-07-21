@@ -24,10 +24,10 @@ android {
 }
 
 dependencies {
-    minApi19Implementation "androidx.multidex:multidex:2.0.1"
+    minApi19Implementation libs.multidex
 
     // moshi-kotlin would depend on 2.5MB of kotlin-reflect library
     // https://github.com/square/moshi#reflection
-    debugImplementation moshiDebug
-    releaseImplementation moshiRelease
+    debugImplementation libs.moshi.debug
+    releaseImplementation libs.moshi.release
 }
