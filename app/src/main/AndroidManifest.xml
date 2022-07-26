@@ -4,7 +4,7 @@
     package="com.thegar.starter">
 
     <application
-        android:name=".MainApplication"
+        android:name=".core.MainApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
