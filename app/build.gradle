@@ -12,7 +12,6 @@ android {
 
     defaultConfig {
         applicationId "com.thegar.starter"
-        minSdk 19
         targetSdk 32
         versionCode 1
         versionName "1.0"
@@ -54,6 +53,14 @@ android {
         minApi21 {
             dimension "minApi"
             minSdk 21
+        }
+    }
+
+    variantFilter { variant ->
+        def names = variant.flavors*.name
+        def isReleaseBuildType = variant.buildType.name == "release"
+        if(names.contains("minApi21") && isReleaseBuildType) {
+            setIgnore(true)
         }
     }
 
