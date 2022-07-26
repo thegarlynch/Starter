@@ -9,10 +9,12 @@ android {
     flavorDimensions "minApi"
     productFlavors {
         minApi19 {
+            minSdk 19
             dimension "minApi"
         }
 
         minApi21 {
+            minSdk 21
             dimension "minApi"
         }
     }
