@@ -2,9 +2,8 @@ package com.thegar.starter.core
 
 import android.app.Application
 import android.content.Context
+import androidx.multidex.MultiDex
 import com.jakewharton.threetenabp.AndroidThreeTen
-import com.thegar.compat.CrossVariant
-import com.thegar.compat.attachBaseContext
 import com.thegar.starter.BuildConfig
 import com.thegar.starter.core.di.ApplicationComponent
 import com.thegar.starter.helper.timber.TimberReleaseTree
@@ -21,7 +20,7 @@ class MainApplication : Application() {
 
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
-        CrossVariant.attachBaseContext(this)
+        MultiDex.install(this)
     }
 
     override fun onCreate() {
