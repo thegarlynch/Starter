@@ -1,10 +1,7 @@
 package com.thegar.starter.core
 
-import android.app.Application
-import android.content.Context
+import androidx.multidex.MultiDexApplication
 import com.jakewharton.threetenabp.AndroidThreeTen
-import com.thegar.compat.CrossVariant
-import com.thegar.compat.attachBaseContext
 import com.thegar.starter.BuildConfig
 import com.thegar.starter.core.di.ApplicationComponent
 import com.thegar.starter.helper.timber.TimberReleaseTree
@@ -13,15 +10,10 @@ import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 
 @HiltAndroidApp
-class MainApplication : Application() {
+class MainApplication : MultiDexApplication() {
 
     init {
         mApp = EntryPoints.get(this, ApplicationComponent::class.java)
-    }
-
-    override fun attachBaseContext(base: Context?) {
-        super.attachBaseContext(base)
-        CrossVariant.attachBaseContext(this)
     }
 
     override fun onCreate() {

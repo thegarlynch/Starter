@@ -16,8 +16,7 @@ android {
         targetSdk 32
         versionCode 1
         versionName "1.0"
-
-        missingDimensionStrategy "minApi", "minApi19", "minApi21", "minApi23", "minApi24"
+        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -35,7 +34,7 @@ android {
         }
     }
 
-    flavorDimensions "version", "minApi"
+    flavorDimensions "version"
     productFlavors {
         development {
             dimension "version"
@@ -43,17 +42,6 @@ android {
 
         production {
             dimension "version"
-        }
-
-        minApi19 {
-            dimension "minApi"
-            minSdk 19
-            multiDexEnabled true
-        }
-
-        minApi21 {
-            dimension "minApi"
-            minSdk 21
         }
     }
 
@@ -70,10 +58,10 @@ android {
     kapt {
         correctErrorTypes true
     }
-
 }
 
 dependencies {
+    implementation libs.multidex
     implementation project(":compat")
 
     // Retrofit

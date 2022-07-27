@@ -6,17 +6,6 @@ plugins {
 android {
     compileSdk 32
 
-    flavorDimensions "minApi"
-    productFlavors {
-        minApi19 {
-            dimension "minApi"
-        }
-
-        minApi21 {
-            dimension "minApi"
-        }
-    }
-
     packagingOptions {
         pickFirst 'androidsupportmultidexversion.txt'
     }
@@ -24,8 +13,6 @@ android {
 }
 
 dependencies {
-    minApi19Implementation libs.multidex
-
     // moshi-kotlin would depend on 2.5MB of kotlin-reflect library
     // https://github.com/square/moshi#reflection
     debugImplementation libs.moshi.debug
