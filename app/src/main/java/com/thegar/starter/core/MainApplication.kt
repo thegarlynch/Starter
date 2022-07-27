@@ -1,8 +1,6 @@
 package com.thegar.starter.core
 
-import android.app.Application
-import android.content.Context
-import androidx.multidex.MultiDex
+import androidx.multidex.MultiDexApplication
 import com.jakewharton.threetenabp.AndroidThreeTen
 import com.thegar.starter.BuildConfig
 import com.thegar.starter.core.di.ApplicationComponent
@@ -12,15 +10,10 @@ import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 
 @HiltAndroidApp
-class MainApplication : Application() {
+class MainApplication : MultiDexApplication() {
 
     init {
         mApp = EntryPoints.get(this, ApplicationComponent::class.java)
-    }
-
-    override fun attachBaseContext(base: Context?) {
-        super.attachBaseContext(base)
-        MultiDex.install(this)
     }
 
     override fun onCreate() {
