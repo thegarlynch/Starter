@@ -61,14 +61,18 @@ android {
 }
 
 dependencies {
-    implementation libs.multidex
     implementation project(":compat")
+
+    // MultiDex
+    implementation libs.multidex
 
     // Retrofit
     implementation libs.retrofit
 
     // Android ThreeTen Backport
     implementation libs.threeten
+
+    implementation libs.bundles.secure
 
     // Dagger Hilt
     implementation libs.hilt.android

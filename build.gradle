@@ -26,7 +26,7 @@ task createSpotlessPreCommitHook() {
         def file = new File("${project.rootDir}/.git/hooks", "pre-commit")
         if (!file.exists()) {
             "cp ${project.rootDir}/script/pre-commit-hook ${project.rootDir}/.git/hooks/pre-commit".execute()
-            "chmod +x ${project.rootDir}/.git/hooks/pre-commit".execute()
         }
+        "chmod +x ${project.rootDir}/.git/hooks/pre-commit".execute()
     }
 }

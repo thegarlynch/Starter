@@ -3,7 +3,6 @@ package com.thegar.starter.helper
 import com.squareup.moshi.adapter
 import com.thegar.starter.core.App
 
-@OptIn(ExperimentalStdlibApi::class)
 object Json {
 
     inline fun <reified T> encode(value: T): String {
