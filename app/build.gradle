@@ -8,12 +8,12 @@ plugins {
 apply from: "$rootDir/script/spotless.gradle"
 
 android {
-    compileSdk 32
+    compileSdk rootProject.ext.compileSdk
 
     defaultConfig {
         applicationId "com.thegar.starter"
-        minSdk 19
-        targetSdk 32
+        minSdk rootProject.ext.minSdk
+        targetSdk rootProject.ext.targetSdk
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
@@ -61,14 +61,18 @@ android {
 }
 
 dependencies {
-    implementation libs.multidex
     implementation project(":compat")
+
+    // MultiDex
+    implementation libs.multidex
 
     // Retrofit
     implementation libs.retrofit
 
     // Android ThreeTen Backport
     implementation libs.threeten
+
+    implementation libs.bundles.secure
 
     // Dagger Hilt
     implementation libs.hilt.android

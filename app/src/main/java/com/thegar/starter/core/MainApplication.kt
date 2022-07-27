@@ -2,12 +2,10 @@ package com.thegar.starter.core
 
 import androidx.multidex.MultiDexApplication
 import com.jakewharton.threetenabp.AndroidThreeTen
-import com.thegar.starter.BuildConfig
 import com.thegar.starter.core.di.ApplicationComponent
-import com.thegar.starter.helper.timber.TimberReleaseTree
+import com.thegar.starter.helper.Install
 import dagger.hilt.EntryPoints
 import dagger.hilt.android.HiltAndroidApp
-import timber.log.Timber
 
 @HiltAndroidApp
 class MainApplication : MultiDexApplication() {
@@ -20,13 +18,8 @@ class MainApplication : MultiDexApplication() {
         super.onCreate()
         AndroidThreeTen.init(this)
 
-        val tree = if (BuildConfig.DEBUG) {
-            Timber.DebugTree()
-        } else {
-            TimberReleaseTree()
-        }
-
-        Timber.plant(tree)
+        Install.timber()
+        Install.security()
     }
 }
 
