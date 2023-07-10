@@ -43,7 +43,7 @@ secure = [ "certificate-transparency", "conscrypt" ]
 [plugins]
 android-application = { id = "com.android.application", version.ref = "gradle-plugin" }
 android-library = { id = "com.android.library", version.ref = "gradle-plugin" }
-jetbrains-kotlin = { id = "org.jetbrains.kotlin.android", version = "1.7.10" }
+jetbrains-kotlin = { id = "org.jetbrains.kotlin.android", version = "1.9.0" }
 gradle-cachefix = { id = "org.gradle.android.cache-fix", version = "2.5.6"}
 gradle-doctor = { id = "com.osacky.doctor", version = "0.8.1" }
 spotless = { id = "com.diffplug.spotless", version = "6.8.0" }
